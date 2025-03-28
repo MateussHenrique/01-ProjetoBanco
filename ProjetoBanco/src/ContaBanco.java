@@ -4,6 +4,7 @@ public class ContaBanco {
     private String dono;
     private float saldo;
     private boolean status;
+    private int getSaldo;
 
 
 
@@ -20,7 +21,7 @@ public class ContaBanco {
 
 
     //Construtor da classe
-    public ContaBanco(float saldo, boolean status) {
+    public void ContaBanco(float saldo, boolean status) {
         this.setSaldo(0);
         this.setStatus(false);
     }
@@ -32,51 +33,51 @@ public class ContaBanco {
         return numConta;
     }
     
-    public void setnumConta (int n) {
-        this.numConta = n;
+    public void setnumConta (int numConta) {
+        this.numConta = numConta;
     }
 
     public String getTipo(){
         return tipo;
     }
 
-    public void setTipo (String t){
-        this.tipo = t;
+    public void setTipo (String tipo){
+        this.tipo = tipo;
     }
 
     public String getDono(){
         return dono;
     }
 
-    public void setDono (String d){
-        this.dono = d;
+    public void setDono (String dono){
+        this.dono = dono;
     }
 
     public float getSaldo (){
         return saldo;
     }
 
-    public void setSaldo (float s){
-        this.saldo = s;
+    public void setSaldo (float saldo){
+        this.saldo = saldo;
     }
 
     public boolean getStatus(){
         return status;
     }
 
-    public void setStatus (boolean s){
-        this.status = s;
+    public void setStatus (boolean status){
+        this.status = status;
     }
 
 
 
     //Métodos da classe
     public void abrirConta (){
-        this.setTipo(t);
+        this.setTipo(tipo);
         this.setStatus(true);
-        if (t == "CC") {
+        if (tipo == "CC") {
             this.setSaldo(50);
-        } else if (t == "CP") {
+        } else if (tipo == "CP") {
             this.setSaldo(150);
         }
         System.out.println("Conta aberta com sucesso!!");
@@ -105,23 +106,23 @@ public class ContaBanco {
 
     public void sacar (float v){
         if (this.getStatus()){
-            if (this.getSaldo() >= v); {
+            if (this.getSaldo() >= v) {
                 this.setSaldo(this.getSaldo() - v);
                 System.out.println("Saque realizado na conta de "+this.getDono());
             } else {
                 System.out.println("Saldo insuficiente para saque");
-            } else {
-                System.out.println("Impossível sacar em uma conta fechada!");
             }
+        } else {
+            System.out.println("Impossível sacar em uma conta fechada!");
         }
     }
 
     public void pagarMensal (){
-        int v;
-        if (this.getTipo() == "CC") {
+        int v = 0;
+        if ("CC".equals(this.getTipo())) {
             v=12;
-        } else if (this.getTipo() == "CP"{
-            v=20;
+        } else if ("CP".equals(this.getTipo())){
+            v = 20;
         }
         if (this.getStatus()) {
             this.setSaldo(this.getSaldo() - v);
@@ -131,3 +132,4 @@ public class ContaBanco {
         }
     }
 }
+
