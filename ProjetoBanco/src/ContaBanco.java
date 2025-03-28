@@ -10,12 +10,12 @@ public class ContaBanco {
 
     //Método para mostrar o estado atual da conta
     public void estadoAtual() {
-        System.out.println("-------------------------------");
         System.out.println("Conta: " + this.getnumConta());
         System.out.println("Tipo: " + this.getTipo());
         System.out.println("Dono: " + this.getDono());
         System.out.println("Saldo: " + this.getSaldo());
         System.out.println("Status: " + this.getStatus());
+        System.out.println("-------------------------------");
     }
 
 
@@ -72,7 +72,7 @@ public class ContaBanco {
 
 
     //Métodos da classe
-    public void abrirConta (){
+    public void abrirConta (String tipo){
         this.setTipo(tipo);
         this.setStatus(true);
         if (tipo == "CC") {
