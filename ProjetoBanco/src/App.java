@@ -1,5 +1,12 @@
 public class App {
     public static void main(String[] args) {
+
+        //Método Interface e Classe Caixa eletrônica
+        CaixaEletronico c = new CaixaEletronico(false, 0);
+        c.setAcesso(false);
+        c.setTransacao(0);;
+        c.abrirMenu();
+
         ContaBanco p1 = new ContaBanco(0, false);
         p1.setnumConta(1234);
         p1.setDono("Mateus");
