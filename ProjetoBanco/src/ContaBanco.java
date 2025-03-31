@@ -1,4 +1,6 @@
 public class ContaBanco {
+
+    //Atributos para a classe
     public int numConta;
     protected String tipo;
     private String dono;
@@ -72,6 +74,8 @@ public class ContaBanco {
 
 
     //Métodos da classe
+
+    //Método para "Abrir conta"
     public void abrirConta (String tipo){
         this.setTipo(tipo);
         this.setStatus(true);
@@ -83,6 +87,7 @@ public class ContaBanco {
         System.out.println("Conta aberta com sucesso!!");
     }
 
+    //Método para "Fechar conta"
     public void fecharConta (){
         if (this.getSaldo > 0){
             System.out.println("Conta não pode ser fechada porque está com dinheiro");
@@ -94,6 +99,7 @@ public class ContaBanco {
         }
     }
 
+        //Método para "Depósito"
     public void depositar (float v){
         if (this.getStatus()){
             //this.saldo = this.saldo + v;
@@ -104,6 +110,7 @@ public class ContaBanco {
         }
     }
 
+        //Método para "Saque"
     public void sacar (float v){
         if (this.getStatus()){
             if (this.getSaldo() >= v) {
@@ -117,6 +124,7 @@ public class ContaBanco {
         }
     }
 
+    //Método para gerenciar o "Pagamento mensal"
     public void pagarMensal (){
         int v = 0;
         if ("CC".equals(this.getTipo())) {

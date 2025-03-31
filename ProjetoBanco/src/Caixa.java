@@ -1,9 +1,8 @@
 public interface Caixa {
+    
     //Métodos Abstratos
-    public abstract void entrarConta();
-    public abstract void sairConta();
-    public abstract void abrirMenu();
-    public abstract void fecharMenu();
-    public abstract void depositar();
-    public abstract void sacar();
+    public void sacar(double valor);
+    public void depositar(double valor);
+    public double consultarSaldo();
+    public void transferir(double valor, String contaDestino);
 }

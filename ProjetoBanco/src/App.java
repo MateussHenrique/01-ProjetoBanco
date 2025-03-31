@@ -1,26 +1,14 @@
 public class App {
+    // Método classe principal e testes
     public static void main(String[] args) {
 
-        //Método Interface e Classe Caixa eletrônica
-        CaixaEletronico c = new CaixaEletronico(false, 0);
-        c.setAcesso(false);
-        c.setTransacao(0);;
-        c.abrirMenu();
+        CaixaEletronico caixa = new CaixaEletronico(true, 1000);
+        caixa.abrirMenu();
+        caixa.depositar(500);
+        caixa.sacar(200);
+        caixa.transferir(300, "12345-6");
+        System.out.println("Saldo atual: R$" + caixa.consultarSaldo());
 
-        ContaBanco p1 = new ContaBanco(0, false);
-        p1.setnumConta(1234);
-        p1.setDono("Mateus");
-        p1.abrirConta("CP");
-        p1.depositar(154000);
-        p1.estadoAtual();
-
-        ContaBanco p2 = new ContaBanco(0, false);
-        p2.setnumConta(5678);
-        p2.setDono("Henrique");
-        p2.abrirConta("CC");
-        p2.depositar(4000);
-        p2.sacar(500);
-        p2.fecharConta();
-        p2.estadoAtual(); 
+        
     }
 }

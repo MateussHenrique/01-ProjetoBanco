@@ -1,11 +1,14 @@
 public class CaixaEletronico implements Caixa {
-    //Atributos 
-    private double saldo;
 
-    //Métodos Especiais
-    public CaixaEletronico (boolean acesso, int transacao) {
+    //Atributos para a classe
+    private double saldo;
+    private boolean acesso;
+
+    
+    //Métodos especiais
+    public CaixaEletronico (boolean acesso, double saldoInicial) {
         this.acesso = acesso;
-        this.transacao = transacao;
+        this.saldo = saldoInicial;
     }
 
     public boolean getAcesso() {
@@ -16,51 +19,67 @@ public class CaixaEletronico implements Caixa {
         this.acesso = acesso;
     }
 
-    public int getTransacao() {
-        return transacao;
-    }
 
-    public void setTransacao(int transacao) {
-        this.transacao = transacao;
-    }
-
-
-    //Métodos Abstratos
+    //Métodos Abstratos e Sobrescrevidos
     @Override
-    public void entrarConta() {
-        this.setAcesso(true);
+    public void sacar(double valor) {
+        if (acesso) {
+            if (valor > 0 && valor <= saldo) {
+                saldo -= valor;
+                System.out.println("Saque de R$" + valor + " realizado com sucesso.");
+            } else {
+                System.out.println("Saldo insuficiente ou valor inválido para saque.");
+            }
+        } else {
+            System.out.println("Acesso negado. Caixa Eletrônico indisponível.");
+        }
     }
-
+    
     @Override
-    public void sairConta() {
-        this.setAcesso(false);
+    public void depositar(double valor) {
+        if (acesso) {
+            if (valor > 0) {
+                saldo += valor;
+                System.out.println("Depósito de R$" + valor + " realizado com sucesso.");
+            } else {
+                System.out.println("Valor inválido para depósito.");
+            }
+        } else {
+            System.out.println("Acesso negado. Caixa Eletrônico indisponível.");
+        }
     }
-
+    
     @Override
+    public double consultarSaldo() {
+        if (acesso) {
+            return saldo;
+        } else {
+            System.out.println("Acesso negado. Caixa Eletrônico indisponível.");
+            return -1;
+        }
+    }
+    
+    @Override
+    public void transferir(double valor, String contaDestino) {
+        if (acesso) {
+            if (valor > 0 && valor <= saldo) {
+                saldo -= valor;
+                System.out.println("Transferência de R$" + valor + " para a conta " + contaDestino + " realizada com sucesso.");
+            } else {
+                System.out.println("Saldo insuficiente ou valor inválido para transferência.");
+            }
+        } else {
+            System.out.println("Acesso negado. Caixa Eletrônico indisponível.");
+        }
+    }
+    
+
+    // Método para abrir o menu do caixa eletrônico
     public void abrirMenu() {
-        System.out.println("------------------------------------------------------------");
-        System.out.println("Você está acessando a conta: " + this.getAcesso());
-        System.out.println("Houve quantas transações? " + this.getTransacao());
-        System.out.println("------------------------------------------------------------");
-    }
-
-    @Override
-    public void fecharMenu() {
-        System.out.println("Fechando Menu...");      
-    }
-
-    @Override
-    public void depositar() {
-        if (this.getAcesso()){
-            this.setTransacao(this.getTransacao());
-        }          
-    }
-
-    @Override
-    public void sacar() {
-        if (this.getAcesso()){
-            this.setTransacao(this.getTransacao());
+        if (acesso) {
+            System.out.println("Bem-vindo ao Caixa Eletrônico. Escolha uma opção.");
+        } else {
+            System.out.println("Caixa Eletrônico indisponível.");
         }
     }
 }
-
