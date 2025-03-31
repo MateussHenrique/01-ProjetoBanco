@@ -1,7 +1,6 @@
 public class CaixaEletronico implements Caixa {
     //Atributos 
-    private boolean acesso;
-    private int transacao; 
+    private double saldo;
 
     //Métodos Especiais
     public CaixaEletronico (boolean acesso, int transacao) {
