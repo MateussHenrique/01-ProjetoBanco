@@ -62,7 +62,7 @@ public class CaixaEletronico implements Caixa {
     @Override
     public void transferir(double valor, String contaDestino) {
         if (acesso) {
-            if (valor > 0 && valor <= saldo) {
+            if (valor >= 0 && valor <= saldo) {
                 saldo -= valor;
                 System.out.println("Transferência de R$" + valor + " para a conta " + contaDestino + " realizada com sucesso.");
             } else {
@@ -77,7 +77,7 @@ public class CaixaEletronico implements Caixa {
     // Método para abrir o menu do caixa eletrônico
     public void abrirMenu() {
         if (acesso) {
-            System.out.println("Bem-vindo ao Caixa Eletrônico. Escolha uma opção.");
+            System.out.println("Bem-vindo ao Caixa Eletrônico. Escolha uma opção: ");
         } else {
             System.out.println("Caixa Eletrônico indisponível.");
         }
