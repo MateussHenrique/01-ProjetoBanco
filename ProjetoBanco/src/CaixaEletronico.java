@@ -55,14 +55,14 @@ public class CaixaEletronico implements Caixa {
             return saldo;
         } else {
             System.out.println("Acesso negado. Caixa Eletrônico indisponível.");
-            return -1;
+            return 0;
         }
     }
     
     @Override
     public void transferir(double valor, String contaDestino) {
         if (acesso) {
-            if (valor >= 0 && valor <= saldo) {
+            if (valor > 0 && valor <= saldo) {
                 saldo -= valor;
                 System.out.println("Transferência de R$" + valor + " para a conta " + contaDestino + " realizada com sucesso.");
             } else {
