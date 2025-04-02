@@ -14,20 +14,20 @@ public class App {
         caixa1.depositar(1000);
         caixa1.sacar(1000);
         caixa1.transferir(0, "12345-6");
-        System.out.println("Saldo atual: R$" + caixa.consultarSaldo());
+        System.out.println("Saldo atual: R$" + caixa1.consultarSaldo());
 
         CaixaEletronico caixa2 = new CaixaEletronico(true, 2000);
         caixa2.abrirMenu();
         caixa2.depositar(1000);
         caixa2.sacar(0);
         caixa2.transferir(500, "12345-6");
-        System.out.println("Saldo atual: R$" + caixa.consultarSaldo());
+        System.out.println("Saldo atual: R$" + caixa2.consultarSaldo());
 
         CaixaEletronico caixa3 = new CaixaEletronico(true, 2000);
         caixa3.abrirMenu();
         caixa3.depositar(3000);
         caixa3.sacar(1000);
         caixa3.transferir(200, "12345-6");
-        System.out.println("Saldo atual: R$" + caixa.consultarSaldo());
+        System.out.println("Saldo atual: R$" + caixa3.consultarSaldo());
     }
 }
