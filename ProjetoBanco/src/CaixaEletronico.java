@@ -60,10 +60,11 @@ public class CaixaEletronico implements Caixa {
     }
     
     @Override
-    public void transferir(double valor, String contaDestino) {
-        if (acesso) {
+    public void transferir(double valor, CaixaEletronico contaDestino) {
+        if (acesso && contaDestino.getAcesso()) {
             if (valor > 0 && valor <= saldo) {
                 saldo -= valor;
+                contaDestino.depositar(valor);
                 System.out.println("Transferência de R$" + valor + " para a conta " + contaDestino + " realizada com sucesso.");
             } else {
                 System.out.println("Saldo insuficiente ou valor inválido para transferência.");
