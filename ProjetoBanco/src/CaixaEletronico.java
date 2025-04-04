@@ -2,7 +2,7 @@ public class CaixaEletronico implements Caixa {
 
     //Atributos para a classe
     private boolean acesso;
-    private contaBanco conta;
+    private ContaBanco conta;
     
     //Métodos especiais
     public CaixaEletronico (boolean acesso, ContaBanco conta) {
@@ -26,7 +26,7 @@ public class CaixaEletronico implements Caixa {
             // Converter double para float
             conta.sacar((float) valor); 
         } else {
-            System.out.println("Acesso negado ou conta não definida.");
+            System.out.println("Acesso negado, não foi possível sacar.");
         }
     }
     
@@ -34,28 +34,37 @@ public class CaixaEletronico implements Caixa {
     
     @Override
     public void depositar(double valor) {
-        if (acesso) {
-            if (valor > 0) {
-                saldo += valor;
-                System.out.println("Depósito de R$" + valor + " realizado com sucesso.");
+        if (acesso && conta 1= null) {
+            conta.depositar((float) valor);
             } else {
-                System.out.println("Valor inválido para depósito.");
-            }
-        } else {
-            System.out.println("Acesso negado. Caixa Eletrônico indisponível.");
+                System.out.println("Acesso negado, não foi possível depositar");
         }
     }
     
+
+
     @Override
     public double consultarSaldo() {
-        if (acesso) {
-            return saldo;
+        if (acesso && conta != null) {
+            return conta.getSaldo();
         } else {
             System.out.println("Acesso negado. Caixa Eletrônico indisponível.");
             return 0;
         }
     }
     
+
+    
+    public double consultarSaldo() {
+        if (acesso && conta != null) {
+            return conta.getSaldo();
+        } else {
+            System.out.println("Acesso negado ou conta não definida.");
+            return 0;
+        }
+    }
+
+
     @Override
     public void transferir(double valor, CaixaEletronico contaDestino) {
         if (acesso && contaDestino.getAcesso()) {
