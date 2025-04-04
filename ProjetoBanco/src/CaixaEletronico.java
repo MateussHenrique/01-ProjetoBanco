@@ -1,14 +1,13 @@
 public class CaixaEletronico implements Caixa {
 
     //Atributos para a classe
-    private double saldo;
     private boolean acesso;
-
+    private contaBanco conta;
     
     //Métodos especiais
-    public CaixaEletronico (boolean acesso, double saldoInicial) {
+    public CaixaEletronico (boolean acesso, ContaBanco conta) {
         this.acesso = acesso;
-        this.saldo = saldoInicial;
+        this.conta = conta  ;
     }
 
     public boolean getAcesso() {
@@ -23,17 +22,15 @@ public class CaixaEletronico implements Caixa {
     //Métodos Abstratos e Sobrescrevidos
     @Override
     public void sacar(double valor) {
-        if (acesso) {
-            if (valor > 0 && valor <= saldo) {
-                saldo -= valor;
-                System.out.println("Saque de R$" + valor + " realizado com sucesso.");
-            } else {
-                System.out.println("Saldo insuficiente ou valor inválido para saque.");
-            }
+        if (acesso && conta != null) {
+            // Converter double para float
+            conta.sacar((float) valor); 
         } else {
-            System.out.println("Acesso negado. Caixa Eletrônico indisponível.");
+            System.out.println("Acesso negado ou conta não definida.");
         }
     }
+    
+
     
     @Override
     public void depositar(double valor) {
