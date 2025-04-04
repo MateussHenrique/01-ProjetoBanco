@@ -2,7 +2,7 @@ public class App {
     // Método classe principal e testes
     public static void main(String[] args) {
 
-        CaixaEletronico conta0 = new CaixaEletronico(true, 0);
+        ContaBanco conta0 = new ContaBanco(200, true);
         CaixaEletronico caixa0 = new CaixaEletronico(true, conta0);
 
         caixa0.abrirMenu();
@@ -11,7 +11,7 @@ public class App {
         caixa0.transferir(300, caixa0);
         System.out.println("Saldo atual: R$" + caixa0.consultarSaldo() + "\n");
 
-        CaixaEletronico conta1 = new CaixaEletronico(true, 0);
+        ContaBanco conta1 = new ContaBanco(400, true);
         CaixaEletronico caixa1 = new CaixaEletronico(true, conta1);
 
         caixa1.abrirMenu();
