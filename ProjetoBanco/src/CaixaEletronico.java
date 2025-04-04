@@ -60,7 +60,7 @@ public class CaixaEletronico implements Caixa {
             if (valor > 0 && valor <= conta.getSaldo()) {
                 conta.sacar((float) valor);
                 contaDestino.conta.depositar((float) valor);
-                System.out.println("Transferência de R$" + valor + " para a conta " + contaDestino + " realizada com sucesso.");
+                System.out.println("Transferência de R$" + valor + " para a conta " + contaDestino.getDono() + " realizada com sucesso.");
             } else {
                 System.out.println("Saldo insuficiente ou valor inválido para transferência.");
             }
