@@ -34,7 +34,7 @@ public class CaixaEletronico implements Caixa {
     
     @Override
     public void depositar(double valor) {
-        if (acesso && conta 1= null) {
+        if (acesso && conta != null) {
             conta.depositar((float) valor);
             } else {
                 System.out.println("Acesso negado, não foi possível depositar");
@@ -57,7 +57,7 @@ public class CaixaEletronico implements Caixa {
     @Override
     public void transferir(double valor, CaixaEletronico contaDestino) {
         if (acesso && conta != null && contaDestino.conta != null) {
-            if (valor => 0 && valor <= conta.getSaldo()) {
+            if (valor > 0 && valor <= conta.getSaldo()) {
                 conta.sacar((float) valor);
                 contaDestino.conta.depositar((float) valor);
                 System.out.println("Transferência de R$" + valor + " para a conta " + contaDestino + " realizada com sucesso.");
