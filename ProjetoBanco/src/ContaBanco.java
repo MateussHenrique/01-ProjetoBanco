@@ -23,8 +23,9 @@ public class ContaBanco {
 
 
     //Construtor da classe
-    public ContaBanco(float saldo, boolean status) {
-        this.setSaldo(saldo));
+    public ContaBanco(String dono, float saldo, boolean status) {
+        this.setDono(dono);
+        this.setSaldo(saldo);
         this.setStatus(status);
     }
 

@@ -2,8 +2,8 @@ public class App {
     // Método classe principal e testes
     public static void main(String[] args) {
 
-        ContaBanco conta0 = new ContaBanco(1000, true);
-        ContaBanco conta1 = new ContaBanco(800, true);
+        ContaBanco conta0 = new ContaBanco("Mateus", 1000, true);
+        ContaBanco conta1 = new ContaBanco("Henrique", 800, true);
         CaixaEletronico caixa0 = new CaixaEletronico(true, conta0);
         CaixaEletronico caixa1 = new CaixaEletronico(true, conta1);
 
