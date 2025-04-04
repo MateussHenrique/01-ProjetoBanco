@@ -53,13 +53,13 @@ public class CaixaEletronico implements Caixa {
         }
     }
 
-    
+
     @Override
     public void transferir(double valor, CaixaEletronico contaDestino) {
-        if (acesso && contaDestino.getAcesso()) {
-            if (valor > 0 && valor <= saldo) {
-                saldo -= valor;
-                contaDestino.depositar(valor);
+        if (acesso && conta != null && contaDestino.conta != null) {
+            if (valor => 0 && valor <= conta.getSaldo()) {
+                conta.sacar((float) valor);
+                contaDestino.conta.depositar((float) valor);
                 System.out.println("Transferência de R$" + valor + " para a conta " + contaDestino + " realizada com sucesso.");
             } else {
                 System.out.println("Saldo insuficiente ou valor inválido para transferência.");
