@@ -24,8 +24,8 @@ public class ContaBanco {
 
     //Construtor da classe
     public ContaBanco(float saldo, boolean status) {
-        this.setSaldo(0);
-        this.setStatus(false);
+        this.setSaldo(saldo));
+        this.setStatus(status);
     }
 
 
