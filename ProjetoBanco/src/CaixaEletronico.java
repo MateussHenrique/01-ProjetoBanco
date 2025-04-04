@@ -52,19 +52,8 @@ public class CaixaEletronico implements Caixa {
             return 0;
         }
     }
-    
 
     
-    public double consultarSaldo() {
-        if (acesso && conta != null) {
-            return conta.getSaldo();
-        } else {
-            System.out.println("Acesso negado ou conta não definida.");
-            return 0;
-        }
-    }
-
-
     @Override
     public void transferir(double valor, CaixaEletronico contaDestino) {
         if (acesso && contaDestino.getAcesso()) {
